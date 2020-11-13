@@ -24,5 +24,7 @@ else
     command=$(echo -n "ecs deploy $INPUT_CLUSTER $INPUT_SERVICE --timeout $TIMEOUT --task $INPUT_TASK")
 fi
 
+echo $command
+
 # fire command
 eval $command
