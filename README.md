@@ -13,7 +13,7 @@ This action deploys ECS services using [fabfuel/ecs-deploy](https://github.com/f
     aws-region: ${{ secrets.AWS_REGION }}
 
 - name: Deploy to ecs
-  uses: brunocascio/ecs-deploy@v1.2.0
+  uses: jperelli/ecs-deploy@v1.2.0
   with:
     cluster: theClusterName
     service: theServiceName
