@@ -15,7 +15,7 @@ then
     [ ! -f $INPUT_ENVFILE ] && echo "$INPUT_ENVFILE not found" && exit 1
     for INPUT_CONTAINER in $INPUT_CONTAINERS
     do
-        env_vars=$(grep -v '^#' "$INPUT_ENVFILE" | grep . | sed -E 's/=/ /1' | awk -v CONTAINER="$INPUT_CONTAINER" '{print "-e " CONTAINER " " $1 " " $2}')
+        env_vars=$(grep -v '^#' "$INPUT_ENVFILE" | grep . | sed -E 's/=/ /1' | awk -v CONTAINER="$INPUT_CONTAINER" '{print "-e " CONTAINER " " $1 " \"" $2 "\""}')
         env_variables="$env_variables $env_vars"
     done
     # make string command to be evaluated (one line string)
