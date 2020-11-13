@@ -11,8 +11,8 @@ inputs:
     task:
         description: 'Task definition name to be updated'
         required: true
-    container:
-        description: 'Container name to be updated'
+    containers:
+        description: 'Container names to be updated separated by space'
         required: true
     envfile:
         description: 'Env file path'
@@ -20,13 +20,14 @@ inputs:
     timeout:
         description: 'Deployment timeout (default 300)'
         required: false
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.cluster }}
-    - ${{ inputs.service }}
-    - ${{ inputs.task }}
-    - ${{ inputs.container }}
-    - ${{ inputs.envfile }}
-    - ${{ inputs.timeout }}
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+        - ${{ inputs.cluster }}
+        - ${{ inputs.service }}
+        - ${{ inputs.task }}
+        - ${{ inputs.containers }}
+        - ${{ inputs.envfile }}
+        - ${{ inputs.timeout }}
